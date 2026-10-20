@@ -16,7 +16,6 @@ export default function OrderForm({ onSubmit, isSubmitting }: OrderFormProps) {
     address: '',
     auraQuantity: 0,
     harmoniaQuantity: 0,
-    sophiaQuantity: 0,
     kairoQuantity: 0,
     aureliaQuantity: 0,
     soleaQuantity: 0,
@@ -38,7 +37,7 @@ export default function OrderForm({ onSubmit, isSubmitting }: OrderFormProps) {
     }
   };
 
-  const getQuantities = (): { aura: number; harmonia: number; sophia: number; kairo: number; aurelia: number; solea: number } => {
+  const getQuantities = (): { aura: number; harmonia: number; kairo: number; aurelia: number; solea: number } => {
     const readVal = (id: string) => {
       const el = document.getElementById(id) as HTMLInputElement | null;
       return el ? parseInt(el.value) || 0 : 0;
@@ -46,7 +45,6 @@ export default function OrderForm({ onSubmit, isSubmitting }: OrderFormProps) {
     return {
       aura: readVal('auraQty'),
       harmonia: readVal('harmoniaQty'),
-      sophia: readVal('sophiaQty'),
       kairo: readVal('kairoQty'),
       aurelia: readVal('aureliaQty'),
       solea: readVal('soleaQty'),
@@ -63,7 +61,7 @@ export default function OrderForm({ onSubmit, isSubmitting }: OrderFormProps) {
     if (!formData.address.trim()) newErrors.address = 'العنوان مطلوب';
 
     const qty = getQuantities();
-    const totalItems = qty.aura + qty.harmonia + qty.sophia + qty.kairo + qty.aurelia + qty.solea;
+    const totalItems = qty.aura + qty.harmonia + qty.kairo + qty.aurelia + qty.solea;
     if (totalItems === 0) {
       newErrors.address = 'اختر كمية من منتج واحد على الأقل';
     }
@@ -81,7 +79,6 @@ export default function OrderForm({ onSubmit, isSubmitting }: OrderFormProps) {
         ...formData,
         auraQuantity: qty.aura,
         harmoniaQuantity: qty.harmonia,
-        sophiaQuantity: qty.sophia,
         kairoQuantity: qty.kairo,
         aureliaQuantity: qty.aurelia,
         soleaQuantity: qty.solea,
@@ -228,30 +225,6 @@ export default function OrderForm({ onSubmit, isSubmitting }: OrderFormProps) {
               <input
                 id="harmoniaQty"
                 name="harmoniaQty"
-                type="number"
-                min="0"
-                max="10"
-                defaultValue="0"
-                className={styles.quantityInput}
-              />
-            </div>
-          </div>
-
-          <div className={styles.productCard}>
-            <img
-              src="/sophia.jpg"
-              alt="إسورة منحنية ذهبي"
-              className={styles.productImage}
-            />
-            <p className={styles.productName}>Sophia</p>
-            <p className={styles.productLabel}>حصري للنساء</p>
-            <div className="flex items-center justify-center gap-2">
-              <label htmlFor="sophiaQty" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.875rem' }}>
-                الكمية:
-              </label>
-              <input
-                id="sophiaQty"
-                name="sophiaQty"
                 type="number"
                 min="0"
                 max="10"

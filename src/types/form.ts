@@ -6,7 +6,6 @@ export interface OrderFormData {
   address: string;
   auraQuantity: number;
   harmoniaQuantity: number;
-  sophiaQuantity: number;
   kairoQuantity: number;
   aureliaQuantity: number;
   soleaQuantity: number;

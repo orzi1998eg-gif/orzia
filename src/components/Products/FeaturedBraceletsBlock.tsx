@@ -94,7 +94,7 @@ export default function FeaturedBraceletsBlock() {
         {[
           { src: '/aura.jpg', name: 'AURA' },
           { src: '/harmonia.jpg', name: 'HARMONIA' },
-          { src: '/sophia.jpg', name: 'SOPHIA' },
+          { src: '/kairo.jpg', name: 'KAÏRO' },
         ].map((item) => (
           <div key={item.name} className="flex items-center gap-3 group/thumb">
             <div className="w-10 h-10 overflow-hidden flex-shrink-0" style={{ borderRadius: '2px' }}>
